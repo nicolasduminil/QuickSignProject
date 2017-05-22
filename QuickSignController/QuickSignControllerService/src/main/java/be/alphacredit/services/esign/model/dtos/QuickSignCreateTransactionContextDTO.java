@@ -42,6 +42,30 @@ public class QuickSignCreateTransactionContextDTO
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+  public QuickSignCreateTransactionContextDTO()
+  {   
+  }
+
+  public QuickSignCreateTransactionContextDTO(String distributorId, String signatoryId, String productCode, BigDecimal amount, String documentReference, Calendar withdrawalPeriod,
+      String statusFlowTargetUrl, QuickSignClientDTO client1, QuickSignClientDTO client2, QuickSignPropertyDTO properties, List<QuickSignDocumentCategory> documentCategoryCodes,
+      QuickSignRedirectDTO redirect, QuickSignAdvisorDTO advisor, Map<String, Object> additionalProperties)
+  {
+    this.distributorId = distributorId;
+    this.signatoryId = signatoryId;
+    this.productCode = productCode;
+    this.amount = amount;
+    this.documentReference = documentReference;
+    this.withdrawalPeriod = withdrawalPeriod;
+    this.statusFlowTargetUrl = statusFlowTargetUrl;
+    this.client1 = client1;
+    this.client2 = client2;
+    this.properties = properties;
+    this.documentCategoryCodes = documentCategoryCodes;
+    this.redirect = redirect;
+    this.advisor = advisor;
+    this.additionalProperties = additionalProperties;
+  }
+
   @JsonProperty("distributorId")
   public String getDistributorId() {
       return distributorId;

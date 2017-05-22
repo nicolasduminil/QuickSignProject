@@ -44,6 +44,15 @@ public class QuickSignException extends Exception
 
   }
 
+  public QuickSignException(List<Link> links, Status status, QuickSignErrorCode errorCode, String message, String developerMessage)
+  {
+    this.links = links;
+    this.status = status;
+    this.errorCode = errorCode;
+    this.message = message;
+    this.developerMessage = developerMessage;
+  }
+
   public List<Link> getLinks()
   {
     return links;

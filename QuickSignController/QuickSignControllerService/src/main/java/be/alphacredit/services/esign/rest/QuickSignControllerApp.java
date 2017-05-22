@@ -1,8 +1,9 @@
 package be.alphacredit.services.esign.rest;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.*;
 
-@ApplicationPath("/qss")
-public class QuickSignControllerApp
+@ApplicationPath("/services")
+public class QuickSignControllerApp extends Application
 {
 }
