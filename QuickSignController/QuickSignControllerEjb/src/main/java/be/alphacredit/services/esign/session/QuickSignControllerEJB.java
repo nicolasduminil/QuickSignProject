@@ -43,7 +43,7 @@ public class QuickSignControllerEJB implements QuickSignControllerLocal, QuickSi
   }
 
   @Override
-  public QuickSignRootResourceDTO getQuickSignRootResource() throws Exception
+  public QuickSignRootResourceDTO getQuickSignRootResource() throws QuickSignException
   {
     Response resp = client.target(baseURI).request().accept("application/json").get();
     quickSignRootResource = resp.readEntity(QuickSignRootResourceDTO.class);
@@ -51,7 +51,7 @@ public class QuickSignControllerEJB implements QuickSignControllerLocal, QuickSi
   }
 
   @Override
-  public void createQuickSignTransaction(QuickSignCreateTransactionContextDTO dto, InputStream pdf) throws Exception
+  public void createQuickSignTransaction(QuickSignCreateTransactionContextDTO dto, InputStream pdf) throws QuickSignException
   {
     /*List<Attachment> attachments = new ArrayList<Attachment>();
     for (URI uri : files)
