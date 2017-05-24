@@ -86,34 +86,26 @@
         <scope>test</scope>
       </dependency>
       <dependency>
-        <groupId>org.jboss.shrinkwrap.resolver</groupId>
-        <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
-        <version>2.2.6</version>
-        <scope>test</scope>
+        <groupId>be.alphacredit.services.esign</groupId>
+        <artifactId>QuickSignControllerModel</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>org.jboss.arquillian.junit</groupId>
-        <artifactId>arquillian-junit-container</artifactId>
-        <version>1.1.9.Final</version>
-        <scope>test</scope>
+        <groupId>be.alphacredit.services.esign</groupId>
+        <artifactId>QuickSignControllerEjb</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>ejb</type>
       </dependency>
       <dependency>
-        <groupId>org.jboss.arquillian.protocol</groupId>
-        <artifactId>arquillian-protocol-servlet</artifactId>
-        <scope>test</scope>
-        <version>1.1.9.Final</version>
+        <groupId>be.alphacredit.services.esign</groupId>
+        <artifactId>QuickSignControllerRest</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>org.jboss.arquillian.container</groupId>
-        <artifactId>arquillian-was-remote-8.5</artifactId>
-        <version>1.0.0.Final-SNAPSHOT</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.jboss.arquillian.container</groupId>
-        <artifactId>arquillian-wlp-managed-8.5</artifactId>
-        <version>1.0.0.Beta2</version>
-        <scope>test</scope>
+        <groupId>be.alphacredit.services.esign</groupId>
+        <artifactId>QuickSignControllerWar</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <type>war</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -165,10 +157,20 @@
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>2.20</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-ear-plugin</artifactId>
+          <version>2.10.1</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
   <modules>
-    <module>QuickSignControllerService</module>
+    <module>QuickSignControllerModel</module>
+    <module>QuickSignControllerEjb</module>
+    <module>QuickSignControllerRest</module>
+    <module>QuickSignControllerWar</module>
+    <module>QuickSignControllerEar</module>
+    <module>QuickSignControllerIntegrationTests</module>
   </modules>
 </project>
