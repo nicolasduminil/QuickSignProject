@@ -9,11 +9,13 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.*;
 
 import org.apache.deltaspike.core.api.config.*;
+import org.codehaus.jackson.map.*;
 import org.slf4j.*;
 
 import com.ibm.websphere.jaxrs20.multipart.*;
 
 import be.alphacredit.services.esign.exceptions.*;
+import be.alphacredit.services.esign.model.dtos.*;
 import be.alphacredit.services.esign.session.*;
 
 @Path("/api")
@@ -30,17 +32,27 @@ public class QuickSignControllerServiceImpl implements QuickSignControllerServic
   @Override
   public Response getQuickSignRootResource() throws QuickSignException
   {
-    return Response.ok(/*qss.getQuickSignRootResource()*/).build();
+    return Response.ok(/* qss.getQuickSignRootResource() */).build();
   }
 
   @Override
   public Response createQuickSignTransaction(IMultipartBody multipartBody) throws QuickSignException
   {
+    QuickSignCreateTransactionContextDTO dto;
     List<IAttachment> attachments = multipartBody.getAllAttachments();
     for (IAttachment attachment : attachments)
     {
-      if (attachment == null)
-        continue;
+      if (attachment.getContentId().equals("context"))
+        try
+        {
+          dto = new ObjectMapper().readValue(attachment.getDataHandler().getInputStream(), QuickSignCreateTransactionContextDTO.class);
+          continue;
+        }
+        catch (Exception ex)
+        {
+          ex.printStackTrace();
+        }
+      List<String> cds = attachment.getHeaders().get("Content-Disposition");
       String[] contentDisposition = attachment.getHeaders().getFirst("Content-Disposition").split(";");
       for (String tempName : contentDisposition)
         if ((tempName.trim().startsWith("filename")))
