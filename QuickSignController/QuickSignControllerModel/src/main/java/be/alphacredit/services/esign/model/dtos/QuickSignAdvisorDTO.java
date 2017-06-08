@@ -10,6 +10,17 @@ import org.codehaus.jackson.map.annotate.*;
 public class QuickSignAdvisorDTO
 {
   private String email;
+
+  public QuickSignAdvisorDTO()
+  {
+  }
+
+  public QuickSignAdvisorDTO(String email, Map<String, Object> additionalProperties)
+  {
+    this.email = email;
+    this.additionalProperties = additionalProperties;
+  }
+
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 

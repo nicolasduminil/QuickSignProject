@@ -14,6 +14,17 @@ public class QuickSignPropertyDTO
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
+  public QuickSignPropertyDTO()
+  {
+  }
+
+  public QuickSignPropertyDTO(String propertyName, String propertyValue, Map<String, Object> additionalProperties)
+  {
+    this.propertyName = propertyName;
+    this.propertyValue = propertyValue;
+    this.additionalProperties = additionalProperties;
+  }
+
   @JsonProperty("propertyName")
   public String getPropertyName()
   {

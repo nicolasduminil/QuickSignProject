@@ -1,12 +1,13 @@
 package be.alphacredit.services.esign.session;
 
-import java.io.*;
+import javax.ws.rs.core.*;
+
+import com.ibm.websphere.jaxrs20.multipart.*;
 
 import be.alphacredit.services.esign.exceptions.*;
-import be.alphacredit.services.esign.model.dtos.*;
 
 public interface QuickSignController
 {
-  public QuickSignRootResourceDTO getQuickSignRootResource() throws QuickSignException;
-  void createQuickSignTransaction(QuickSignCreateTransactionContextDTO dto, InputStream pdf) throws QuickSignException;
+  public Response getQuickSignRootResource() throws QuickSignException;
+  public Response createQuickSignTransaction(IMultipartBody multipartBody) throws QuickSignException;
 }

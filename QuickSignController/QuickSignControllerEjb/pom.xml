@@ -53,6 +53,14 @@
       <groupId>be.alphacredit.services.esign</groupId>
       <artifactId>QuickSignControllerModel</artifactId>
     </dependency>
+    <!-- dependency>
+      <groupId>oauth.signpost</groupId>
+      <artifactId>signpost-core</artifactId>
+    </dependency-->
+    <dependency>
+      <groupId>net.oauth.core</groupId>
+      <artifactId>oauth</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <finalName>${project.artifactId}</finalName>

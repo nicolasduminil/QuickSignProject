@@ -12,7 +12,7 @@ public class QuickSignException extends Exception
   private List<Link> links;
   private Status status;
   private QuickSignErrorCode errorCode;
-  private String message;
+  //private String message;
   private String developerMessage;
 
   public QuickSignException()
@@ -46,10 +46,10 @@ public class QuickSignException extends Exception
 
   public QuickSignException(List<Link> links, Status status, QuickSignErrorCode errorCode, String message, String developerMessage)
   {
+    super(message);
     this.links = links;
     this.status = status;
     this.errorCode = errorCode;
-    this.message = message;
     this.developerMessage = developerMessage;
   }
 
@@ -81,16 +81,6 @@ public class QuickSignException extends Exception
   public void setErrorCode(QuickSignErrorCode errorCode)
   {
     this.errorCode = errorCode;
-  }
-
-  public String getMessage()
-  {
-    return message;
-  }
-
-  public void setMessage(String message)
-  {
-    this.message = message;
   }
 
   public String getDeveloperMessage()

@@ -11,8 +11,20 @@ public class QuickSignRedirectDTO
 {
   private String formUrl;
   private String endUrl;
+  
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+  public QuickSignRedirectDTO()
+  {
+  }
+
+  public QuickSignRedirectDTO(String formUrl, String endUrl, Map<String, Object> additionalProperties)
+  {
+    this.formUrl = formUrl;
+    this.endUrl = endUrl;
+    this.additionalProperties = additionalProperties;
+  }
 
   @JsonProperty("formUrl")
   public String getFormUrl()

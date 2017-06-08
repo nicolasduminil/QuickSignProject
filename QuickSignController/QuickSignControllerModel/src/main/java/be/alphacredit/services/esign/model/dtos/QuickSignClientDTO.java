@@ -18,8 +18,29 @@ public class QuickSignClientDTO
   private String email;
   private QuickSignEmailDTO emails;
   private QuickSignPhoneDTO phones;
+
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+  public QuickSignClientDTO()
+  {
+  }
+
+  public QuickSignClientDTO(String id, String title, String lastName, String firstName, Calendar dateOfBirth, QuickSignAddressDTO address, String email, QuickSignEmailDTO emails,
+      QuickSignPhoneDTO phones, Map<String, Object> additionalProperties)
+  {
+    this.id = id;
+    this.title = title;
+    this.lastName = lastName;
+    this.firstName = firstName;
+    this.dateOfBirth = dateOfBirth;
+    this.address = address;
+    this.email = email;
+    this.emails = emails;
+    this.phones = phones;
+    this.additionalProperties = additionalProperties;
+  }
+
 
   @JsonProperty("id")
   public String getId()

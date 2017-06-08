@@ -13,8 +13,27 @@ public class QuickSignPhoneDTO
   private QuickSignCellDTO cells;
   private String landline;
   private QuickSignLandlineDTO landlines;
+
+  public QuickSignPhoneDTO()
+  {
+    super();
+    
+  }
+
+ 
+  public QuickSignPhoneDTO(String cell, QuickSignCellDTO cells, String landline, QuickSignLandlineDTO landlines, Map<String, Object> additionalProperties)
+  {
+    super();
+    this.cell = cell;
+    this.cells = cells;
+    this.landline = landline;
+    this.landlines = landlines;
+    this.additionalProperties = additionalProperties;
+  }
+
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
 
   @JsonProperty("cell")
   public String getCell()

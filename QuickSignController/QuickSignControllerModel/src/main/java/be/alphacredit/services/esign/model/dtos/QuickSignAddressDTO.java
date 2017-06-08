@@ -13,8 +13,22 @@ public class QuickSignAddressDTO
   private List<String> lines = null;
   private String city;
   private String zipCode;
+  
+  public QuickSignAddressDTO()
+  {
+  }
+
+  public QuickSignAddressDTO(List<String> lines, String city, String zipCode, Map<String, Object> additionalProperties)
+  {
+    this.lines = lines;
+    this.city = city;
+    this.zipCode = zipCode;
+    this.additionalProperties = additionalProperties;
+  }
+
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
 
   @JsonProperty("lines")
   public List<String> getLines()

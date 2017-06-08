@@ -10,6 +10,18 @@ import org.codehaus.jackson.map.annotate.*;
 public class QuickSignCellDTO
 {
   private String secondary;
+
+  public QuickSignCellDTO()
+  {
+  }
+
+  public QuickSignCellDTO(String secondary, Map<String, Object> additionalProperties)
+  {
+    this.secondary = secondary;
+    this.additionalProperties = additionalProperties;
+  }
+
+
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 

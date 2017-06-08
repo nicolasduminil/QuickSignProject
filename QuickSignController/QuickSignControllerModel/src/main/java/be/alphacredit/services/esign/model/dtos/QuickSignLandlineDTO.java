@@ -10,6 +10,17 @@ import org.codehaus.jackson.map.annotate.*;
 public class QuickSignLandlineDTO
 {
   private String secondary;
+
+  public QuickSignLandlineDTO()
+  {
+  }
+
+  public QuickSignLandlineDTO(String secondary, Map<String, Object> additionalProperties)
+  {
+    this.secondary = secondary;
+    this.additionalProperties = additionalProperties;
+  }
+
   @JsonIgnore
   private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
